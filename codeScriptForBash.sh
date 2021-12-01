@@ -1,12 +1,9 @@
 #!/bin/bash
 
 version="0.2"
-code_directory="codevault"
-list_directory="codevault"
-list_file="codelist.txt"
+
 
 function codeStatus {
-	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
@@ -20,11 +17,10 @@ function codeStatus {
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < $list_file
+	done < "${list_directory}/${list_file}"
 }
 
 function codePush {
-	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
@@ -37,11 +33,10 @@ function codePush {
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < $list_file	
+	done < "${list_directory}/${list_file}"
 }
 
 function codePull {
-	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
@@ -54,11 +49,10 @@ function codePull {
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < $list_file 
+	done < "${list_directory}/${list_file}"
 }
 
 function codeClone {
-	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
@@ -74,12 +68,11 @@ function codeClone {
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < $list_file
+	done < "${list_directory}/${list_file}"
 	
 }
 
 function codeAddAll {
-	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
@@ -92,7 +85,7 @@ function codeAddAll {
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < $list_file 
+	done < "${list_directory}/${list_file}" 
 	
 }
 

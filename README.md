@@ -67,3 +67,8 @@ The idea is that the script reads each line:
 ## Feel free to clone and take the Script beyond its initial form!
 
 If you take a look at the script you will see how easy it is setup. It may take you a few minutes to reporsue it but the advantages save you hours.
+
+
+code_directory=""
+list_directory=""
+list_file=""
