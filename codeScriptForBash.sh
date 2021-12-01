@@ -1,61 +1,69 @@
+#!/bin/bash
+
+version="0.2"
+code_directory="codevault"
+list_directory="codevault"
+list_file="codelist.txt"
+
 function codeStatus {
-	cd ~/codevault/.commands
+	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
+		# echo 'Checking' $var1 $var2
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
-			cd ~/codevault/$var1/$var2
-			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
+			cd ~/$code_directory/$var1/$var2
+			echo -e 'Git:\n\n\e[1;36m'$var2' @ '$code_directory'/'$var1'\e[0m'
+			# echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git status;
-			cd ~/codevault;
+			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < list.txt
+	done < $list_file
 }
 
 function codePush {
-	cd ~/codevault/.commands
+	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
-			cd ~/codevault/$var1/$var2
+			cd ~/$code_directory/$var1/$var2
 			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
 			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git push;
-			cd ~/codevault;
+			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < list.txt	
+	done < $list_file	
 }
 
 function codePull {
-	cd ~/codevault/.commands
+	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
-			cd ~/codevault/$var1/$var2
+			cd ~/$code_directory/$var1/$var2
 			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
 			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git pull;
-			cd ~/codevault;
+			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < list.txt 
+	done < $list_file 
 }
 
 function codeClone {
-	cd ~/codevault/.commands
+	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
-			cd ~/codevault
+			cd ~/$code_directory
 			generateDirectory $var1
 			cd $var1
 			git clone $var3
@@ -63,28 +71,28 @@ function codeClone {
 			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git status;
-			cd ~/codevault;
+			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < list.txt
+	done < $list_file
 	
 }
 
 function codeAddAll {
-	cd ~/codevault/.commands
+	cd ~/$list_directory
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
-			cd ~/codevault/$var1/$var2
+			cd ~/$code_directory/$var1/$var2
 			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
 			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git add .;
-			cd ~/codevault;
+			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < list.txt 
+	done < $list_file 
 	
 }
 
@@ -95,15 +103,19 @@ function generateDirectory {
 }
 
 function printHelpMenu {
-	echo -e '\n
-\tCodeVault CLI v0.2\n
-\tManage all of your repositories with this CLI, one command to rule them all!\n
-\t\tflags available:\n
-\t\t[ -s  | --status   ] Gets the Status for all repos
-\t\t[ -ps | --push     ] Pushes the commits to all repos
-\t\t[ -pl | --pull     ] Pulls the latest commits on all repos
-\t\t[ -cl | --clone    ] Clones all repos, good for when I lose all my code!
-\t\t[ -a  | --add      ] Adds all untracked files to their repos\n'
+echo -e 'OLTRAG CLI Version' $version
+echo -e 'One Line To Rule All Gits!\n
+\tCommand Examples:
+\toltrag -s
+\toltrag --pull
+\toltrag --clone **Careful with this one. Use it only when you are setting up your repos in a new computer.
+\toltrag --push\n
+\tList of flags available:
+\t[ -s  | --status   ] Gets the Status for all repos
+\t[ -ps | --push     ] Pushes the commits to all repos
+\t[ -pl | --pull     ] Pulls the latest commits on all repos
+\t[ -cl | --clone    ] Clones all repos, handy in the event of losing all your code!
+\t[ -a  | --add      ] Adds all untracked files to their repos\n\n'
 }
 
 if [ $# == 0 ]; then	
@@ -118,7 +130,7 @@ while [ -n "$1" ]; do
 		-pl | --pull      ) codePull;;
 		-cl | --clone     ) codeClone;;
 		-a  | --add       ) codeAddAll;;
-		-t  | --teleport  ) cd ~/codevault;;
+		-t  | --teleport  ) cd ~/$code_directory;;
 		-*  | *           ) echo -e '\n\t\tunknown flag option provided' 
 					printHelpMenu;;
 	esac

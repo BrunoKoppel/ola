@@ -4,9 +4,9 @@ Branch off from the original CodeVault Project
 
 <img src="./oltrag-CLI.png" alt="Pretty neat huh?" />
 
-Have you ever wanted to pull, status, or push all your git repos all at once with one command? 
+Have you ever wanted to pull, status, or push, all your git repos at once with just one command?
 
-Well! Now you can! Using the code.sh script within .commands you can accomplish this.
+Well! Now you can!
 
 ## Setup
 
