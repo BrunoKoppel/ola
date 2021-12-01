@@ -1,23 +1,22 @@
 #!/bin/bash
 
 version="0.2"
-
+code_directory=$code_directory
+list_directory=$list_directory
+list_file=$list_file
 
 function codeStatus {
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
-		# echo 'Checking' $var1 $var2
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
 			cd ~/$code_directory/$var1/$var2
-			echo -e 'Git:\n\n\e[1;36m'$var2' @ '$code_directory'/'$var1'\e[0m'
-			# echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
-			echo -e '\e[1;36mResults: \e[0m\n'
+			echo -e '\n\e[1;36m'$var2' @ '$code_directory'/'$var1' :: Results: \e[0m'
 			git status;
 			cd ~/$code_directory;
-			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
+			# echo -e '\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < "${list_directory}/${list_file}"
+	done < ~/$list_directory/$list_file
 }
 
 function codePush {
@@ -27,13 +26,12 @@ function codePush {
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
 			cd ~/$code_directory/$var1/$var2
 			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git push;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < "${list_directory}/${list_file}"
+	done < ~/$list_directory/$list_file
 }
 
 function codePull {
@@ -43,13 +41,12 @@ function codePull {
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
 			cd ~/$code_directory/$var1/$var2
 			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git pull;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < "${list_directory}/${list_file}"
+	done < ~/$list_directory/$list_file
 }
 
 function codeClone {
@@ -62,13 +59,12 @@ function codeClone {
 			cd $var1
 			git clone $var3
 			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git status;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < "${list_directory}/${list_file}"
+	done < ~/$list_directory/$list_file
 	
 }
 
@@ -79,13 +75,12 @@ function codeAddAll {
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
 			cd ~/$code_directory/$var1/$var2
 			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mDirectory: '$(pwd)'\e[0m'
 			echo -e '\e[1;36mResults: \e[0m\n'
 			git add .;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
 		fi
-	done < "${list_directory}/${list_file}" 
+	done < ~/$list_directory/$list_file 
 	
 }
 

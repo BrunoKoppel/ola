@@ -1,6 +1,6 @@
 # OLTRAG: [One Line To Rule All Git](http://brunokoppel.com/blog/04/)
 
-Branch off from the original CodeVault Project
+Branch off from the original oltrag Project
 
 <img src="./oltrag-CLI.png" alt="Pretty neat huh?" />
 
@@ -10,41 +10,46 @@ Well! Now you can!
 
 ## Setup
 
-1. First clone this repo ```git@github.com:BrunoKoppel/oltrag.git```
+## 1. First clone this repo ```git@github.com:BrunoKoppel/oltrag.git```
 
-2. Add the script to your terminal profile (Personally I like to use ```cva``` instead of ```codevault``` just shorter):
+## 2. Add an alias to your terminal profile (Personally I like to use ```ola``` instead of ```oltrag```, faster to type):
 
-### MacOS Terminals
+### MacOs\Linux\Unix\gitbash Terminals
 
-- zsh: ```alias codevault='~/codevault/.commands/codeScriptForMacOS.sh' >> .zprofile```
-- bash: ```alias codevault='~/codevault/.commands/codeScriptForMacOS.sh' >> .bash_profile```
-
-### Linux\Unix Terminals
-
-- zsh: ```alias codevault='~/codevault/.commands/codeScriptForUnix.sh' >> .zprofile```
-- bash: ```alias codevault='~/codevault/.commands/codeScriptForUnix.sh' >> .bash_profile```
+- zsh: ```alias oltrag='~/WHERE_YOUR_SCRIPT_GOT_CLONED/codeScriptForZsh.sh' >> .zprofile```
+- bash: ```alias oltrag='~/WHERE_YOUR_SCRIPT_GOT_CLONED/codeScriptForBash.sh' >> .bash_profile```
 
 ### Windows Terminals
 
-Coming... At some point.. I think I'll do a python universal script If I don't get to understand batch scripts.
+- Sorry, I'm working on a port for powershell at the moment.
 
-## Commands
+## 3. Define 3 system variables in your `.bash_profile` or `.bashrc`:
 
-- ```codevault -s``` or ```codevault --status``` git status in all your repos (1st favorite command)
-- ```codevault -pl``` or ```codevault --pull``` git pull in all your repos (2nd favorite command)
-- ```codevault -cl``` or ```codevault --clone``` git clone in all your repos
-  - This command is perfect for when you are setting up your code base in a new computer.
-- ```codevault -ps``` or ```codevault --push``` git push in all your repos
-  - Useful when you've set a lot of commits ready to be pushed.
-- ```codevault -a``` or ```codevault --add``` git add . in all your repos
-  - Barely use this one unless I've done little work around all the repos.
-- ```codevault -t``` or ```codevault --teleport``` Would take you to the directory, but for some reason wasn't working (Coming soon)
+export list_directory='WHERE_YOUR_LIST_IS'
+export code_directory='WHERE_YOUR_CODE_IS'
+export list_file='FILENAME_OF_YOUR_LIST'
+
+Here is a few shortcuts:
+- ```export list_directory='WHERE_YOUR_LIST_IS' >> .bash_profile```
+- ```export code_directory='WHERE_YOUR_CODE_IS' >> .bash_profile```
+- ```export list_file='FILENAME_OF_YOUR_LIST' >> .bash_profile```
+
+Just make sure to pass the right names that you are using in your system.
+
+## Command Examples
+
+- ```oltrag -s || oltrag --status``` git status in all your repos.
+- ```oltrag -pl || oltrag --pull``` git pull in all your repos.
+- ```oltrag -cl || oltrag --clone``` git clone in all your repos, for when setting up new computers.
+- ```oltrag -ps || oltrag --push``` git push in all your repos.
+- ```oltrag -a || oltrag --add``` git add . in all your repos
+<!-- - ```oltrag -t || oltrag --teleport``` Would take you to the directory, but for some reason wasn't working (Coming soon) -->
 
 ## How to set up the list of repos?
 
-Create a file with the name ```list.txt``` in the .command/ folder, right next to code.sh. Now the idea is to have each repo that you mantained *specified in the following way*.
+Use the Example list to get an idea of how to set them up, but basically it follows 3 parameters
 
-```pseudo
+``` pseudo
 [encapsulating_directory] [repo_directory_name] [github_ssh or github_http]
 [encapsulating_directory] [repo_directory_name] [github_ssh or github_http]
 [encapsulating_directory] [repo_directory_name] [github_ssh or github_http]
@@ -63,12 +68,3 @@ The idea is that the script reads each line:
 1. First argument is the directory where the repo is saved in.
 2. Second argument is the name of the directory that the git clone generates.
 3. Third and last argument is the gitHub link.
-
-## Feel free to clone and take the Script beyond its initial form!
-
-If you take a look at the script you will see how easy it is setup. It may take you a few minutes to reporsue it but the advantages save you hours.
-
-
-code_directory=""
-list_directory=""
-list_file=""
