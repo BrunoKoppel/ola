@@ -1,17 +1,15 @@
-# Lines are ignored if they start with a pound sign or are left blank
-
+# Lines are ignored if they start with a pound sign
+# DO NOT LEAVE BLANK LINES, ELSE YOU WILL GET UGLY OUTPUT
+# :) sincerily, bko
 # Scripts Projects
 scripts Todoist-script git@github.com:BrunoKoppel/Todoist-script.git
-
 # Research Projects
 research PCV git@github.com:BrunoKoppel/PCV.git
 research CLCV git@github.com:BrunoKoppel/CLCV.git
 research RPi01-RoboDoge git@github.com:BrunoKoppel/RPi01-RoboDoge.git
 research RPi02-Robotexa git@github.com:BrunoKoppel/RPi02-Robotexa.git
-
 # App Projects
 apps TCLI git@github.com:BrunoKoppel/TCLI.git
-
 # Web Projects
 web bko-mern git@github.com:BrunoKoppel/bko-mern.git
 web game-of-life git@github.com:BrunoKoppel/game-of-life.git
