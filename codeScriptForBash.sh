@@ -3,7 +3,7 @@
 version="0.2"
 code_directory=$code_directory
 list_directory=$list_directory
-list_file=$list_file
+list_file=$list_filename
 
 function codeStatus {
 	while read line;
@@ -25,8 +25,7 @@ function codePush {
 		IFS=' ' read var1 var2 var3 <<< $line
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
 			cd ~/$code_directory/$var1/$var2
-			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mResults: \e[0m\n'
+			echo -e '\n\e[1;36m'$var2' @ '$code_directory'/'$var1' :: Results: \e[0m'
 			git push;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
@@ -40,8 +39,7 @@ function codePull {
 		IFS=' ' read var1 var2 var3 <<< $line
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
 			cd ~/$code_directory/$var1/$var2
-			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mResults: \e[0m\n'
+			echo -e '\n\e[1;36m'$var2' @ '$code_directory'/'$var1' :: Results: \e[0m'
 			git pull;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
@@ -58,8 +56,8 @@ function codeClone {
 			generateDirectory $var1
 			cd $var1
 			git clone $var3
-			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mResults: \e[0m\n'
+			cd $var3
+			echo -e '\n\e[1;36m'$var2' @ '$code_directory'/'$var1' :: Results: \e[0m'
 			git status;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'
@@ -74,8 +72,7 @@ function codeAddAll {
 		IFS=' ' read var1 var2 var3 <<< $line
 		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
 			cd ~/$code_directory/$var1/$var2
-			echo -e '\n\n\e[1;36m'$var1' :: '$var2'\e[0m'
-			echo -e '\e[1;36mResults: \e[0m\n'
+			echo -e '\n\e[1;36m'$var2' @ '$code_directory'/'$var1' :: Results: \e[0m'
 			git add .;
 			cd ~/$code_directory;
 			echo -e '\n\t\e[1;32mFinished Successfully!\e[0m\n'

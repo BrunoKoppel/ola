@@ -1,45 +1,49 @@
+#!/bin/zsh
+
+version="0.2"
+code_directory=$code_directory
+list_directory=$list_directory
+list_file=$list_filename
+
 function codeStatus {
-	cd ~/codevault/.commands
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
-		cd ~/codevault/$var1/$var2
-		echo '\n\n\x1b[36mREPOSITORY NAME: '$var2' \\\\ Category: '$var1'\x1b[0m'
-		echo '\x1b[36mDIR: '$(pwd)'\x1b[0m'
-		echo '\x1b[36mGITHUB PRINTOUT\x1b[0m\n'
-		git status;
-		cd ~/codevault;
-	done < list.txt
+		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
+			cd ~/$code_directory/$var1/$var2
+			echo '\n\n\x1b[36m'$var2' @ '$code_directory'/'$var1' :: Results: \x1b[0m'
+			git status;
+			cd ~/$code_directory;
+		fi
+	done < ~/$list_directory/$list_file
 	echo '\n\t\x1b[32mFinished Successfully!\x1b[0m\n'
 }
 
 function codePush {
-	cd ~/codevault/.commands
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
-		cd ~/codevault/$var1/$var2
-		echo '\n\n\x1b[36mREPOSITORY NAME: '$var2' \\\\ Category: '$var1'\x1b[0m'
-		echo '\x1b[36mDIR: '$(pwd)'\x1b[0m'
-		echo '\x1b[36mGITHUB PRINTOUT\x1b[0m\n'
-		git push;
-		cd ~/codevault;
-	done < list.txt
+		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
+			cd ~/$code_directory/$var1/$var2
+			echo '\n\n\x1b[36m'$var2' @ '$code_directory'/'$var1' :: Results: \x1b[0m'
+			git push;
+			cd ~/$code_directory;
+		fi
+	done < ~/$list_directory/$list_file
 	echo '\n\t\x1b[32mFinished Successfully!\x1b[0m\n'
 }
 
 function codePull {
-	cd ~/codevault/.commands
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line
-		cd ~/codevault/$var1/$var2
-		echo '\n\n\x1b[36mREPOSITORY NAME: '$var2' \\\\ Category: '$var1'\x1b[0m'
-		echo '\x1b[36mDIR: '$(pwd)'\x1b[0m'
-		echo '\x1b[36mGITHUB PRINTOUT\x1b[0m\n'
-		git pull;
-		cd ~/codevault;
-	done < list.txt 
+		if [[ -n $var1 ]] && [[ $var1 != '#' ]]; then
+			cd ~/$code_directory/$var1/$var2
+			echo '\n\n\x1b[36m'$var2' @ '$code_directory'/'$var1' :: Results: \x1b[0m'
+			git pull;
+			cd ~/$code_directory;
+		fi
+	done < ~/$list_directory/$list_file
 	echo '\n\t\x1b[32mFinished Successfully!\x1b[0m\n'
 }
 
@@ -48,16 +52,15 @@ function codeClone {
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line 
-		cd ~/codevault
+		cd ~/$code_directory;
 		generateDirectory $var1
 		cd $var1
 		git clone $var3
-		echo '\n\n\x1b[36mREPOSITORY NAME: '$var2' \\\\ Category: '$var1'\x1b[0m'
-		echo '\x1b[36mDIR: '$(pwd)'\x1b[0m'
-		echo '\x1b[36mGITHUB PRINTOUT\x1b[0m\n'
+		cd $var3
+		echo '\n\n\x1b[36m'$var2' @ '$code_directory'/'$var1' :: Results: \x1b[0m'
 		git status;
-		cd ~/codevault;
-	done < list.txt
+		cd ~/$code_directory;
+	done < ~/$list_directory/$list_file
 	echo '\n\t\x1b[32mFinished Successfully!\x1b[0m\n'
 }
 
@@ -66,13 +69,11 @@ function codeAddAll {
 	while read line;
 		do 
 		IFS=' ' read var1 var2 var3 <<< $line 
-		cd ~/codevault/$var1/$var2
-		echo '\n\n\x1b[36mREPOSITORY NAME: '$var2' \\\\ Category: '$var1'\x1b[0m'
-		echo '\x1b[36mDIR: '$(pwd)'\x1b[0m'
-		echo '\x1b[36mGITHUB PRINTOUT\x1b[0m\n'
+		cd ~/$code_directory/$var1/$var2
+		echo '\n\n\x1b[36m'$var2' @ '$code_directory'/'$var1' :: Results: \x1b[0m'
 		git add .;
-		cd ~/codevault;
-	done < list.txt 
+		cd ~/$code_directory;
+	done < ~/$list_directory/$list_file
 	echo '\n\t\x1b[32mFinished Successfully!\x1b[0m\n'
 }
 
@@ -94,7 +95,7 @@ function printHelpMenu {
 \t\t[ -a  | --add      ] Adds all untracked files to their repos\n"
 }
 
-if [ $# == 0 ]; then	
+if [ $# = 0 ]; then	
 	printHelpMenu
 fi
 

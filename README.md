@@ -27,7 +27,7 @@ Well! Now you can!
 
 export list_directory='WHERE_YOUR_LIST_IS'
 export code_directory='WHERE_YOUR_CODE_IS'
-export list_file='FILENAME_OF_YOUR_LIST'
+export list_filename='FILENAME_OF_YOUR_LIST'
 
 Here is a few shortcuts:
 - ```export list_directory='WHERE_YOUR_LIST_IS' >> .bash_profile```
