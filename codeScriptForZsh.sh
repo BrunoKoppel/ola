@@ -112,9 +112,8 @@ while [ -n "$1" ]; do
 		-pl | --pull      ) codePull;;
 		-cl | --clone     ) codeClone;;
 		-a  | --add       ) codeAddAll;;
-		# -t  | --teleport  ) cd ~/;;
+		-t  | --teleport  ) cd ~/$code_directory;;
 		-*  | *           ) echo '\n\t\tunknown flag option provided' 
-					printHelpMenu;;
 	esac
 	shift
 done
