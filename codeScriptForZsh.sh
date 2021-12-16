@@ -85,14 +85,19 @@ function generateDirectory {
 
 function printHelpMenu {
 	echo "\n\
-\tOLTRAG CLI v0.2\n
-\tManage all of your repositories with this CLI, one command to rule all git!\n
-\t\tflags available:\n
-\t\t[ -s  | --status   ] Gets the Status for all repos
-\t\t[ -ps | --push     ] Pushes the commits to all repos
-\t\t[ -pl | --pull     ] Pulls the latest commits on all repos
-\t\t[ -cl | --clone    ] Clones all repos, good for when I lose all my code!
-\t\t[ -a  | --add      ] Adds all untracked files to their repos\n"
+OLTRAG CLI v0.2\n
+Manage all of your repositories with this CLI, one command to rule all git!\n
+Command Examples:
+oltrag -s
+oltrag --pull
+oltrag --clone **Careful with this one. Use it only when you are setting up your repos in a new computer.
+oltrag --push\n
+List of flags available:
+[ -s  | --status   ] Gets the Status for all repos
+[ -ps | --push     ] Pushes the commits to all repos
+[ -pl | --pull     ] Pulls the latest commits on all repos
+[ -cl | --clone    ] Clones all repos, handy in the event of losing all your code!
+[ -a  | --add      ] Adds all untracked files to their repos\n\n"
 }
 
 if [ $# = 0 ]; then	

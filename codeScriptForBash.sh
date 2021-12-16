@@ -90,17 +90,17 @@ function generateDirectory {
 function printHelpMenu {
 echo -e 'OLTRAG CLI Version' $version
 echo -e 'One Line To Rule All Gits!\n
-\tCommand Examples:
-\toltrag -s
-\toltrag --pull
-\toltrag --clone **Careful with this one. Use it only when you are setting up your repos in a new computer.
-\toltrag --push\n
-\tList of flags available:
-\t[ -s  | --status   ] Gets the Status for all repos
-\t[ -ps | --push     ] Pushes the commits to all repos
-\t[ -pl | --pull     ] Pulls the latest commits on all repos
-\t[ -cl | --clone    ] Clones all repos, handy in the event of losing all your code!
-\t[ -a  | --add      ] Adds all untracked files to their repos\n\n'
+Command Examples:
+oltrag -s
+oltrag --pull
+oltrag --clone **Careful with this one. Use it only when you are setting up your repos in a new computer.
+oltrag --push\n
+List of flags available:
+[ -s  | --status   ] Gets the Status for all repos
+[ -ps | --push     ] Pushes the commits to all repos
+[ -pl | --pull     ] Pulls the latest commits on all repos
+[ -cl | --clone    ] Clones all repos, handy in the event of losing all your code!
+[ -a  | --add      ] Adds all untracked files to their repos\n\n'
 }
 
 if [ $# == 0 ]; then	
