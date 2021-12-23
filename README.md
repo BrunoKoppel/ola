@@ -10,9 +10,14 @@ Well! Now you can!
 
 ## Setup
 
-## 1. First clone this repo ```git@github.com:BrunoKoppel/oltrag.git```
+## 1. First clone this repo 
 
-## 2. Add an alias to your terminal profile (Personally I like to use ```ola``` instead of ```oltrag```, faster to type):
+```git clone git@github.com:BrunoKoppel/oltrag.git```
+```git clone https://github.com/BrunoKoppel/oltrag.git```
+
+## 2. Add an alias to your terminal profile 
+
+> Personally I like to use ```ola``` instead of ```oltrag```, it's just faster to type
 
 ### MacOs\Linux\Unix\gitbash Terminals
 
@@ -21,7 +26,7 @@ Well! Now you can!
 
 ### Windows Terminals
 
-- Sorry, I'm working on a port for powershell at the moment.
+- Sorry, I'm working on a port for powershell at the moment, but it may end up being a python script running below a layer of powershell commands
 
 ## 3. Define 3 system variables in your `.bash_profile` or `.bashrc`:
 
@@ -43,7 +48,6 @@ Just make sure to pass the right names that you are using in your system.
 - ```oltrag -cl || oltrag --clone``` git clone in all your repos, for when setting up new computers.
 - ```oltrag -ps || oltrag --push``` git push in all your repos.
 - ```oltrag -a || oltrag --add``` git add . in all your repos
-<!-- - ```oltrag -t || oltrag --teleport``` Would take you to the directory, but for some reason wasn't working (Coming soon) -->
 
 ## How to set up the list of repos?
 

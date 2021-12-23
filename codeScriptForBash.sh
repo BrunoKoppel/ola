@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.2"
+version="0.2.1"
 code_directory=$code_directory
 list_directory=$list_directory
 list_file=$list_filename
@@ -115,7 +115,7 @@ while [ -n "$1" ]; do
 		-pl | --pull      ) codePull;;
 		-cl | --clone     ) codeClone;;
 		-a  | --add       ) codeAddAll;;
-		-t  | --teleport  ) cd ~/$code_directory;;
+		-*  | *           ) echo 'FLAG PROVIDED DOES NOT CORRESPOND TO ANY ACTION' 
 	esac
 	shift
 done
