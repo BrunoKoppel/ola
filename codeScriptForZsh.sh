@@ -112,8 +112,7 @@ while [ -n "$1" ]; do
 		-pl | --pull      ) codePull;;
 		-cl | --clone     ) codeClone;;
 		-a  | --add       ) codeAddAll;;
-		-t  | --teleport  ) cd ~/$code_directory;;
-		-*  | *           ) echo '\n\t\tunknown flag option provided' 
+		-*  | *           ) echo 'FLAG PROVIDED DOES NOT CORRESPOND TO ANY ACTION'
 	esac
 	shift
 done
