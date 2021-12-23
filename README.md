@@ -1,8 +1,8 @@
-# OLTRAG: [One Line To Rule All Git](http://brunokoppel.com/blog/04/)
+# OLTRAG: [One Line To Rule All Git](http://brunokoppel.com/blog/oltrag/)
 
 Branch off from the original oltrag Project
 
-<img src="./oltrag-CLI.png" alt="Pretty neat huh?" />
+<img src="./oltrag.png" alt="Pretty neat huh?" />
 
 Have you ever wanted to pull, status, or push, all your git repos at once with just one command?
 
