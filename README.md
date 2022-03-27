@@ -1,7 +1,7 @@
-# Ola: [One line all](http://brunokoppel.com/blog/ola/)
+# Ola: [(O)ne (l)ine (a)ll](http://brunokoppel.com/blog/ola/)
 
-Branch off from the original OLTRAG Project
-and renamed into it.
+Branched off from the original OLTRAG Project
+and renamed into Ola.
 
 <img src="./ola.png" alt="Pretty neat huh?" />
 
