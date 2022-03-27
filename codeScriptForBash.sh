@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.2.1"
+version="0.2.2"
 code_directory=$code_directory
 list_directory=$list_directory
 list_file=$list_filename
@@ -88,13 +88,13 @@ function generateDirectory {
 }
 
 function printHelpMenu {
-echo -e 'OLTRAG CLI Version' $version
-echo -e 'One Line To Rule All Gits!\n
+echo -e 'Ola CLI Version' $version
+echo -e 'One Line All!\n
 Command Examples:
-oltrag -s
-oltrag --pull
-oltrag --clone **Careful with this one. Use it only when you are setting up your repos in a new computer.
-oltrag --push\n
+ola -s
+ola --pull
+ola --clone **Careful with this one. Use it only when you are setting up your repos in a new computer.
+ola --push\n
 List of flags available:
 [ -s  | --status   ] Gets the Status for all repos
 [ -ps | --push     ] Pushes the commits to all repos

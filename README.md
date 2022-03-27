@@ -1,8 +1,9 @@
-# OLTRAG: [One Line To Rule All Git](http://brunokoppel.com/blog/oltrag/)
+# Ola: [One line all](http://brunokoppel.com/blog/ola/)
 
-Branch off from the original oltrag Project
+Branch off from the original OLTRAG Project
+and renamed into it.
 
-<img src="./oltrag.png" alt="Pretty neat huh?" />
+<img src="./ola.png" alt="Pretty neat huh?" />
 
 Have you ever wanted to pull, status, or push, all your git repos at once with just one command?
 
@@ -12,17 +13,16 @@ Well! Now you can!
 
 ## 1. First clone this repo 
 
-```git clone git@github.com:BrunoKoppel/oltrag.git```
-```git clone https://github.com/BrunoKoppel/oltrag.git```
+```git clone git@github.com:BrunoKoppel/ola.git```
+```git clone https://github.com/BrunoKoppel/ola.git```
 
 ## 2. Add an alias to your terminal profile 
 
-> Personally I like to use ```ola``` instead of ```oltrag```, it's just faster to type
 
 ### MacOs\Linux\Unix\gitbash Terminals
 
-- zsh: ```alias oltrag='~/WHERE_YOUR_SCRIPT_GOT_CLONED/codeScriptForZsh.sh' >> .zprofile```
-- bash: ```alias oltrag='~/WHERE_YOUR_SCRIPT_GOT_CLONED/codeScriptForBash.sh' >> .bash_profile```
+- zsh: ```alias ola='~/WHERE_YOUR_SCRIPT_GOT_CLONED/codeScriptForZsh.sh' >> .zprofile```
+- bash: ```alias ola='~/WHERE_YOUR_SCRIPT_GOT_CLONED/codeScriptForBash.sh' >> .bash_profile```
 
 ### Windows Terminals
 
@@ -43,11 +43,11 @@ Just make sure to pass the right names that you are using in your system.
 
 ## Command Examples
 
-- ```oltrag -s || oltrag --status``` git status in all your repos.
-- ```oltrag -pl || oltrag --pull``` git pull in all your repos.
-- ```oltrag -cl || oltrag --clone``` git clone in all your repos, for when setting up new computers.
-- ```oltrag -ps || oltrag --push``` git push in all your repos.
-- ```oltrag -a || oltrag --add``` git add . in all your repos
+- ```ola -s || ola --status``` git status in all your repos.
+- ```ola -pl || ola --pull``` git pull in all your repos.
+- ```ola -cl || ola --clone``` git clone in all your repos, for when setting up new computers.
+- ```ola -ps || ola --push``` git push in all your repos.
+- ```ola -a || ola --add``` git add . in all your repos
 
 ## How to set up the list of repos?
 
